@@ -2,4 +2,14 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  spree:
+    name: 'Name'
+    url: 'URL (Image Ads only)'
+    width: 'Width'
+    height: 'Height'
+    only_flash: 'Only relevant for Flash Ads.'
+    file_name: 'File name (*.jpg, *.gif, *.png, *.swf)'
+    position: 'Position'
+    tag: 'Tag (optional)'
+    tag_notice: 'Additional info to categorize Ads.'
+    enabled: 'Enabled'

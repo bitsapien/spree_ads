@@ -9,7 +9,6 @@ module Spree
 
       def new
         @ad = Spree::Ad.new
-        @ad.category = 1
         @ad.save(validate: false)
         redirect_to edit_admin_ad_url(@ad)
       end
@@ -31,8 +30,12 @@ module Spree
         end
 
         @ad.name = params[:ad][:name]
-        @ad.category = params[:ad][:category]
+        @ad.url = params[:ad][:url]
+        @ad.width = params[:ad][:width]
+        @ad.height = params[:ad][:height]
+
         @ad.position = params[:ad][:position]
+        @ad.tag = params[:ad][:tag]
         @ad.enabled = params[:ad][:enabled]
 
         if @ad.save
@@ -44,13 +47,16 @@ module Spree
 
       def destroy
         ad = Spree::Ad.find(params[:id])
-        if File.unlink(Rails.root.join('public', 'ads', ad.file_name))
-          ad.destroy
+
+        if ad.file_name != nil
+          File.unlink(Rails.root.join('public', 'ads', ad.file_name))
+        end
+
+        if ad.destroy
           redirect_to admin_ads_path, notice: 'Deleted!'
         else
           redirect_to admin_ads_path
         end
-
       end
 
     end

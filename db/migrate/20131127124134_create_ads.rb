@@ -4,7 +4,9 @@ class CreateAds < ActiveRecord::Migration
       t.string :name
       t.string :file_name
       t.string :url
-      t.integer :category
+      t.string :tag
+      t.integer :width
+      t.integer :height
       t.integer :position
       t.boolean :enabled
 

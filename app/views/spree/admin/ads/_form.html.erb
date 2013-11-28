@@ -1,30 +1,68 @@
 <div data-hook="admin_ad_form_fields">
 
-  <div class="left eight columns alpha" data-hook="admin_product_form_left">    
+  <div class="left seven columns alpha" data-hook="admin_product_form_left">    
     <%= f.field_container :name do %>
-      <%= f.label :name, raw(Spree.t(:name) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.label :name, raw(Spree.t(:name)) %>
       <%= f.text_field :name, :class => 'fullwidth name' %>
       <%= f.error_message_on :name %>
     <% end %>
 
+    <%= f.field_container :url do %>
+      <%= f.label :url, raw(Spree.t(:url)) %>
+      <%= f.text_field :url, :class => 'fullwidth url' %>
+      <%= f.error_message_on :url %>
+    <% end %>
+
+    <div class="ad_size">
+      <%= f.field_container :width do %>
+        <%= f.label :width, raw(Spree.t(:width)) %><br>
+        <small><%= Spree.t(:only_flash) %></small>
+        <%= f.text_field :width, :class => 'fullwidth width' %>
+        <%= f.error_message_on :width %>
+      <% end %>
+
+      <%= f.field_container :height do %>
+        <%= f.label :height, raw(Spree.t(:height)) %><br>
+        <small><%= Spree.t(:only_flash) %></small>
+        <%= f.text_field :height, :class => 'fullwidth height' %>
+        <%= f.error_message_on :height %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="center two columns alpha">&nbsp;</div>
+
+  <div class="right seven columns alpha" data-hook="admin_product_form_left">    
+    <% if @ad.file_name %>
+      <br>
+      <%= link_to 'Show Ad', '/ads/' + @ad.file_name, :target => '_blank', :class => 'button' %>&nbsp;
+      <strong><%= Spree.t(:current_ad) %>:</strong> <%= @ad.file_name %>
+    <% end %>
+    <hr>
+    <%= f.field_container :file_name do %>
+      <%= f.label :file_name, raw(Spree.t(:file_name)) %>
+      <%= f.file_field :file_name, :class => 'fullwidth file_name' %>
+      <%= f.error_message_on :file_name %>
+    <% end %>
+    <br><br>
+
     <%= f.field_container :position do %>
-      <%= f.label :position, raw(Spree.t(:position) + content_tag(:span, ' *', :class => 'required')) %>
-      <%= f.select :position, [['Startseite links', 0], ['Startseite rechts', 1], ['Alle Seiten links', 2], ['Alle Seiten rechts', 3]], {}, :class => 'fullwidth enabled' %>
+      <%= f.label :position, raw(Spree.t(:position)) %>
+      <%= f.select :position, [['Choose location...', 0], ['Home sidebar left', 1], ['Home sidebar right', 2], ['All sidebar left', 3], ['All sidebar right', 4], ['Home Slider', 5]], {}, :class => 'fullwidth position' %>
       <%= f.error_message_on :position %>
     <% end %>
 
+    <%= f.field_container :tag do %>
+      <%= f.label :tag, raw(Spree.t(:tag)) %><br>
+      <small><%= Spree.t(:tag_notice) %></small>
+      <%= f.text_field :tag, :class => 'fullwidth tag' %>
+      <%= f.error_message_on :tag %>
+    <% end %>
+
     <%= f.field_container :enabled do %>
-      <%= f.label :enabled, raw(Spree.t(:enabled) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.label :enabled, raw(Spree.t(:enabled)) %>
       <%= f.check_box :enabled, :class => 'enabled' %>
       <%= f.error_message_on :enabled %>
-    <% end %>
-  </div>
-
-  <div class="left eight columns alpha" data-hook="admin_product_form_left">    
-    <%= f.field_container :file_name do %>
-      <%= f.label :file_name, raw(Spree.t(:file_name) + content_tag(:span, ' *', :class => 'required')) %>
-      <%= f.file_field :file_name, :class => 'fullwidth file_name' %>
-      <%= f.error_message_on :file_name %>
     <% end %>
   </div>
   <div class="clear"></div>
@@ -36,3 +74,33 @@
   <% end %>
 
 </div>
+
+<script>
+(function($) {
+  if($('select.position').val() == 5){
+    $('.ad_size').hide();
+  }
+
+  $('select.position').change(function(){
+    if($(this).val() == 5){ 
+      $('.ad_size').hide();
+    } else {
+      $('.ad_size').show();
+    }
+  });
+})(jQuery);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

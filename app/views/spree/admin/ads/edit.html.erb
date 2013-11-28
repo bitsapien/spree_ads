@@ -1,4 +1,9 @@
 <%= csrf_meta_tags %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:edit_ad) %>
+<% end %>
+
 <% content_for :page_actions do %>
   <% if can?(:admin, Spree::Order) %>
     <li><%= button_link_to Spree.t(:back_to_ads_listing), admin_ads_path, :icon => 'icon-arrow-left' %></li>
