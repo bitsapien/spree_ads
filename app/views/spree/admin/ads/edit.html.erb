@@ -1,0 +1,18 @@
+<%= csrf_meta_tags %>
+<% content_for :page_actions do %>
+  <% if can?(:admin, Spree::Order) %>
+    <li><%= button_link_to Spree.t(:back_to_ads_listing), admin_ads_path, :icon => 'icon-arrow-left' %></li>
+  <% end %>
+<% end %>
+
+<div data-hook="admin_ads_edit_header">
+  <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @ad } %>
+</div>
+
+<div data-hook="admin_ad_edit_form">
+  <%= form_for [:admin, @ad], :method => :put, :html => { :multipart => true } do |f| %>
+    <div id="ad-form-wrapper">
+      <%= render :partial => 'form', :locals => { :f => f } %>
+    </div>
+  <% end %>
+</div>

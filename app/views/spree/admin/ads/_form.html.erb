@@ -1,0 +1,38 @@
+<div data-hook="admin_ad_form_fields">
+
+  <div class="left eight columns alpha" data-hook="admin_product_form_left">    
+    <%= f.field_container :name do %>
+      <%= f.label :name, raw(Spree.t(:name) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.text_field :name, :class => 'fullwidth name' %>
+      <%= f.error_message_on :name %>
+    <% end %>
+
+    <%= f.field_container :position do %>
+      <%= f.label :position, raw(Spree.t(:position) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.select :position, [['Startseite links', 0], ['Startseite rechts', 1], ['Alle Seiten links', 2], ['Alle Seiten rechts', 3]], {}, :class => 'fullwidth enabled' %>
+      <%= f.error_message_on :position %>
+    <% end %>
+
+    <%= f.field_container :enabled do %>
+      <%= f.label :enabled, raw(Spree.t(:enabled) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.check_box :enabled, :class => 'enabled' %>
+      <%= f.error_message_on :enabled %>
+    <% end %>
+  </div>
+
+  <div class="left eight columns alpha" data-hook="admin_product_form_left">    
+    <%= f.field_container :file_name do %>
+      <%= f.label :file_name, raw(Spree.t(:file_name) + content_tag(:span, ' *', :class => 'required')) %>
+      <%= f.file_field :file_name, :class => 'fullwidth file_name' %>
+      <%= f.error_message_on :file_name %>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+ 
+  <br>
+  <hr> 
+  <%= f.field_container :submit do %>
+    <%= f.submit 'Save', :class => 'enabled' %>
+  <% end %>
+
+</div>
