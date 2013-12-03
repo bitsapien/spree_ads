@@ -1,7 +1,17 @@
 SpreeAds
 ========
 
-Introduction goes here.
+Ads / Banner Management for Spree Commerce.
+
+Use the following partials in your Views:
+
+```
+<%= render 'spree/shared/ads/home_slider' %>
+<%= render 'spree/shared/ads/home_sidebar_left' %>
+<%= render 'spree/shared/ads/home_sidebar_right' %>
+<%= render 'spree/shared/ads/all_sidebar_left' %>
+<%= render 'spree/shared/ads/all_sidebar_right' %>
+```
 
 Installation
 ------------
