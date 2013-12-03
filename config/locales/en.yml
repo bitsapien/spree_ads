@@ -3,11 +3,13 @@
 
 en:
   spree:
+    created_at: 'Created'
     name: 'Name'
     url: 'URL (Image Ads only)'
     width: 'Width'
     height: 'Height'
-    only_flash: 'Only relevant for Flash Ads.'
+    only_image_html: 'Only relevant for <strong>Image Ads</strong>.'
+    only_flash_html: 'Only relevant for <strong>Flash Ads</strong>.'
     file_name: 'File name (*.jpg, *.gif, *.png, *.swf)'
     position: 'Position'
     tag: 'Tag (optional)'

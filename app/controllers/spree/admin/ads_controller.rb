@@ -3,8 +3,11 @@ module Spree
   module Admin
     class AdsController < Admin::ResourceController
 
+      POSITIONS = [['Choose location...', 0], ['Home sidebar left', 1], ['Home sidebar right', 2], ['All sidebar left', 3], ['All sidebar right', 4], ['Home Slider', 5]]
+
       def index
         @ads = Spree::Ad.page(params[:page]).per(params[:per_page] || Spree::Config[:orders_per_page])
+        @position_types = POSITIONS
       end
 
       def new
@@ -15,6 +18,7 @@ module Spree
 
       def edit
         @ad = Spree::Ad.find(params[:id])
+        @position_types = POSITIONS
       end
 
       def update

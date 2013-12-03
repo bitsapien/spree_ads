@@ -8,7 +8,8 @@
     <% end %>
 
     <%= f.field_container :url do %>
-      <%= f.label :url, raw(Spree.t(:url)) %>
+      <%= f.label :url, raw(Spree.t(:url)) %><br>
+      <small><%= Spree.t(:only_image_html) %></small>
       <%= f.text_field :url, :class => 'fullwidth url' %>
       <%= f.error_message_on :url %>
     <% end %>
@@ -16,14 +17,14 @@
     <div class="ad_size">
       <%= f.field_container :width do %>
         <%= f.label :width, raw(Spree.t(:width)) %><br>
-        <small><%= Spree.t(:only_flash) %></small>
+        <small><%= Spree.t(:only_flash_html) %></small>
         <%= f.text_field :width, :class => 'fullwidth width' %>
         <%= f.error_message_on :width %>
       <% end %>
 
       <%= f.field_container :height do %>
         <%= f.label :height, raw(Spree.t(:height)) %><br>
-        <small><%= Spree.t(:only_flash) %></small>
+        <small><%= Spree.t(:only_flash_html) %></small>
         <%= f.text_field :height, :class => 'fullwidth height' %>
         <%= f.error_message_on :height %>
       <% end %>
@@ -48,7 +49,7 @@
 
     <%= f.field_container :position do %>
       <%= f.label :position, raw(Spree.t(:position)) %>
-      <%= f.select :position, [['Choose location...', 0], ['Home sidebar left', 1], ['Home sidebar right', 2], ['All sidebar left', 3], ['All sidebar right', 4], ['Home Slider', 5]], {}, :class => 'fullwidth position' %>
+      <%= f.select :position, @position_types, {}, :class => 'fullwidth position' %>
       <%= f.error_message_on :position %>
     <% end %>
 
