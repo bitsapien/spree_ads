@@ -17,14 +17,12 @@
     <div class="ad_size">
       <%= f.field_container :width do %>
         <%= f.label :width, raw(Spree.t(:width)) %><br>
-        <small><%= Spree.t(:only_flash_html) %></small>
         <%= f.text_field :width, :class => 'fullwidth width' %>
         <%= f.error_message_on :width %>
       <% end %>
 
       <%= f.field_container :height do %>
         <%= f.label :height, raw(Spree.t(:height)) %><br>
-        <small><%= Spree.t(:only_flash_html) %></small>
         <%= f.text_field :height, :class => 'fullwidth height' %>
         <%= f.error_message_on :height %>
       <% end %>

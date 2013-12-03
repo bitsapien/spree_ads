@@ -1,0 +1,4 @@
+<h1>Home Sidebar Left</h1>
+<% Spree::Ad.where(:position => 1).each do |ad| %>
+  <%= ad_code(ad) %>
+<% end %>
