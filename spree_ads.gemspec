@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 1.9.3'
 
   s.author    = 'Aleks Maksimow '
-  s.email     = 'am@klaut.org'
-  s.homepage  = 'http://aleksmaksimow.de'
+  s.email     = 'aleks@kaffeezucht.de'
+  s.homepage  = 'http://kaffeezucht.de'
 
   #s.files       = `git ls-files`.split("\n")
   #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
